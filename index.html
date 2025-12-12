@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A beautiful PWA for managing your posts and notes">
+  <meta name="theme-color" content="#6366f1">
+  <title>Posts Manager - PWA</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/png" href="icons/static-logo.png">
+  <link rel="apple-touch-icon" href="icons/static-logo.png">
+</head>
+
+<body>
+  <!-- Install Banner -->
+  <div id="install-banner" class="install-banner hidden">
+    <div class="install-content">
+      <div class="install-icon">📱</div>
+      <div class="install-text">
+        <h3>Install Posts Manager</h3>
+        <p>Install this app on your device for quick access</p>
+      </div>
+      <div class="install-actions">
+        <button id="install-btn" class="btn-install">Install</button>
+        <button id="dismiss-btn" class="btn-dismiss">✕</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <h1 class="logo">
+          <span class="logo-icon">📝</span>
+          Posts Manager
+        </h1>
+        <div class="header-actions">
+          <span id="online-status" class="status-badge online">Online</span>
+          <span id="posts-count" class="count-badge">0 posts</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container">
+      <!-- Search & Actions Bar -->
+      <div class="action-bar">
+        <div class="search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="search-input" placeholder="Search posts by title or content..." 
+                 class="search-input" oninput="searchPosts()">
+        </div>
+        <button onclick="showForm()" class="btn btn-primary">
+          <span class="btn-icon">➕</span>
+          New Post
+        </button>
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state" class="empty-state hidden">
+        <div class="empty-icon">📭</div>
+        <h2>No posts yet</h2>
+        <p>Create your first post to get started!</p>
+        <button onclick="showForm()" class="btn btn-primary">Create Post</button>
+      </div>
+
+      <!-- Posts Grid -->
+      <div id="posts-list" class="posts-grid">
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Form -->
+  <div id="modal-overlay" class="modal-overlay hidden" onclick="hideForm()">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-header">
+        <h2><span id="form-title">Create</span> Post</h2>
+        <button onclick="hideForm()" class="btn-close">✕</button>
+      </div>
+      <div class="modal-body">
+        <form id="post-form" onsubmit="savePost(event)">
+          <input type="hidden" id="post-id">
+          
+          <div class="form-group">
+            <label for="post-name">Title</label>
+            <input type="text" id="post-name" placeholder="Enter post title" 
+                   class="form-input" required maxlength="100">
+          </div>
+          
+          <div class="form-group">
+            <label for="post-content">Content</label>
+            <textarea id="post-content" placeholder="Write your post content here..." 
+                      class="form-textarea" required rows="8"></textarea>
+          </div>
+          
+          <div class="form-actions">
+            <button type="button" onclick="hideForm()" class="btn btn-secondary">Cancel</button>
+            <button type="submit" class="btn btn-primary">
+              <span id="save-btn-text">Save Post</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notifications -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="./app.js"></script>
+</body>
+
+</html>

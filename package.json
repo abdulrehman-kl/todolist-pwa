@@ -1,0 +1,25 @@
+{
+  "name": "posts-manager-pwa",
+  "version": "1.0.0",
+  "description": "A beautiful Progressive Web App for managing posts and notes",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "serve": "npx http-server -p 8000 -c-1",
+    "dev": "npx live-server --port=8000 --no-browser"
+  },
+  "keywords": [
+    "pwa",
+    "progressive-web-app",
+    "posts",
+    "notes",
+    "crud",
+    "offline",
+    "indexeddb"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {}
+}
+
+
