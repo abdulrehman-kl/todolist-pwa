@@ -3,6 +3,6 @@
   "target": {
     "namespace": "android_app",
     "package_name": "com.abdulrehman.todolist",
-    "sha256_cert_fingerprints": ["0B:2F:86:D6:E7:9F:28:FE:E8:A0:14:45:01:05:00:9E:A7:02:30:81:B5:16:2F:0E:68:F4:C3:C1:16:75:BC:E2"]
+    "sha256_cert_fingerprints": ["0B:2F:86:D6:E7:9F:20:FE:E8:A8:14:A5:D1:05:DD:9E:A7:D2:30:81:B5:16:2F:06:6B:F4:C3:C1:16:75:BC:E2"]
   }
 }]
